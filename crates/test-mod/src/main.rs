@@ -1,11 +1,11 @@
-use rustic_craft::{MinecraftMod, item::Item};
+use rustic_craft::{MinecraftMod, item::{Item, ItemSettings}};
 
 fn main() {
     println!("Creating test mod...");
 
     let mut test_mod = MinecraftMod::new("rustic-craft-example-mod");
 
-    let test_item = Item::new("test_item");
+    let test_item = Item::new("test_item", ItemSettings::new());
 
     test_mod.register_item(test_item);
 
