@@ -3,7 +3,7 @@ use rustic_craft::{MinecraftMod, item::{Item, ItemSettings}};
 fn main() {
     println!("Creating test mod...");
 
-    let mut test_mod = MinecraftMod::new("rustic-craft-example-mod");
+    let mut test_mod = MinecraftMod::new("rustic_craft_example");
 
     let test_item = Item::new("test_item", ItemSettings::new());
 
