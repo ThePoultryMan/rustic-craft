@@ -1,17 +1,26 @@
+use item::Item;
 use serde::{Deserialize, Serialize};
 
 use std::{fs::File, io::Error};
 
+pub mod item;
+
 #[derive(Deserialize, Serialize)]
 pub struct MinecraftMod {
     mod_id: String,
+    items: Vec<Item>,
 }
 
 impl MinecraftMod {
     pub fn new(mod_id: &str) -> Self {
         Self {
             mod_id: mod_id.to_owned(),
+            items: Vec::new(),
         }
+    }
+
+    pub fn register_item(&mut self, item: Item) {
+        self.items.push(item);
     }
 
     fn get_mod_id(&self) -> &str {
