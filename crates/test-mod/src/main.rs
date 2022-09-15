@@ -1,4 +1,4 @@
-use rustic_craft::{MinecraftMod, item::{Item, ItemSettings}};
+use rustic_craft::{MinecraftMod, game::item::{Item, ItemSettings}};
 
 fn main() {
     println!("Creating test mod...");

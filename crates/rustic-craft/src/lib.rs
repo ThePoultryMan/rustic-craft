@@ -1,9 +1,9 @@
-use item::Item;
+use game::item::Item;
 use serde::{Deserialize, Serialize};
 
 use std::{fs::File, io::Error};
 
-pub mod item;
+pub mod game;
 
 #[derive(Deserialize, Serialize)]
 pub struct MinecraftMod {

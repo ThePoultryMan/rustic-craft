@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 
+use super::item_group::ItemGroup;
+
 #[derive(Deserialize, Serialize)]
 pub struct Item {
     identifier: String,
@@ -9,24 +11,6 @@ pub struct Item {
 #[derive(Deserialize, Serialize)]
 pub struct ItemSettings {
     item_group: ItemGroup,
-}
-
-#[derive(Deserialize, Serialize)]
-pub enum ItemGroup {
-    BuildingBlocks,
-    Decorations,
-    Redstone,
-    Transportation,
-    Misc,
-    Search,
-    Food,
-    Tools,
-    Combat,
-    Materials,
-}
-
-trait TItemGroup {
-    fn get_icon(&self) -> String;
 }
 
 impl Item {
@@ -49,14 +33,6 @@ impl ItemSettings {
     }
 }
 
-impl TItemGroup for ItemGroup {
-    fn get_icon(&self) -> String {
-        match self {
-            _ => panic!("You shouldn't be looking for the icon of Minecraft's item groups.")
-        }
-    }
-}
-
 impl Default for ItemSettings {
     fn default() -> Self {
         Self { item_group: ItemGroup::Search }
@@ -65,6 +41,8 @@ impl Default for ItemSettings {
 
 #[cfg(test)]
 mod test {
+    use crate::game::item_group::TItemGroup;
+
     use super::*;
 
     #[test]
