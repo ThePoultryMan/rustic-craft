@@ -13,9 +13,16 @@ pub struct ItemSettings {
 
 #[derive(Deserialize, Serialize)]
 pub enum ItemGroup {
-    Combat,
+    BuildingBlocks,
     Decorations,
+    Redstone,
+    Transportation,
+    Misc,
     Search,
+    Food,
+    Tools,
+    Combat,
+    Materials,
 }
 
 trait TItemGroup {
