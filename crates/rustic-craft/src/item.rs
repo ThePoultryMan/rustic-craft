@@ -61,6 +61,12 @@ mod test {
     use super::*;
 
     #[test]
+    fn new_item() {
+        let cargo_test = Item::new("cargo_test", ItemSettings::new());
+        assert_eq!(cargo_test.identifier, "cargo_test");
+    }
+
+    #[test]
     #[should_panic]
     fn minecrafts_item_group_icon() {
         ItemGroup::Combat.get_icon();
